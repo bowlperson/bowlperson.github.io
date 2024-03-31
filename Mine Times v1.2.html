@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Clock</title>
+    <style>
+        body {
+            background-image: url('https://bigmemes999.funnyjunk.com/gifs/Pixel+art+gifs+most+from+waneella_640531_7253146.gif');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 0px;
+            position: relative;
+        }
+		
+		@font-face {
+            font-family: 'DS-Digital';
+            src: url('local/DS-DIGI.TTF') format('truetype');
+			}
+		
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Black overlay at 50% opacity */
+            z-index: -1; /* Ensure overlay is behind content */
+        }
+        .content {
+            position: relative;
+            z-index: 1; /* Ensure content is on top of overlay */
+        }
+        .location {
+            font-size: 45px;
+            margin-bottom: 5px;
+            font-family: "Times New Roman", Times, serif;
+            font-weight: bold;
+            color: #FFFFFF;
+			padding-top: 15px;
+        }
+        .timezone {
+            font-size: 15px;
+            margin-bottom: 0px;
+            color: #98E4FF;
+        }
+        .viewport {
+            width: 300px; /* Width of the viewport */
+            height: 50px; /* Height of the viewport */
+            overflow: hidden;
+            position: relative;
+            margin: 0 auto; /* Center the viewport horizontally */
+        }
+        .scrolling-text {
+            font-size: 30px;
+            margin-bottom: 5px;
+            color: #a8a5a2;
+            white-space: nowrap;
+            position: absolute;
+            animation: scroll-left 130s linear infinite; /* Adjust duration as needed */
+        }
+        .time {
+            font-family: 'DS-Digital', sans-serif;
+            font-size: 70px;
+            letter-spacing: 2px;
+            text-align: center;
+            color: #00ff00; /* Green color */
+            padding-bottom: 60px;
+            padding-top: -5px;
+        }
+		
+		.scrolling-text span.plus-one {
+            color: #00ff00; /* Change color of +# here */
+        }
+		
+		.scrolling-text span.minus-one {
+            color: #E72929; /* Change color of -# here */
+        }
+		
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(25%); /* Start offscreen to the right */
+            }
+            100% {
+                transform: translateX(-100%); /* Scroll offscreen to the left */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="content">
+        <div class="location">TUCSON </div>
+        <div class="timezone">Mountain Standard Time (MST)</div>
+        <div class="viewport">
+            <div class="scrolling-text"> Mission &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										 Silverbell &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										 <span class="plus-one">Narm +1</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										 Ray &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										 <span class="minus-one">Bald Mountain -1</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										 <span class="plus-one">Three Oaks +1</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										 <span class="minus-one">Bear Run -5</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										 <span class="minus-one">USG -1</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										 </div>
+        </div>
+        </div>
+        <div class="time" id="tucsonTime"></div>
+
+        <div class="location">SOUTH AFRICA</div>
+        <div class="timezone">UTC +2</div>
+        <div class="viewport">
+            <div class="scrolling-text"> Essakane &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										 Gac &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										 Comliog &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										 Mog &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										 Otjikoto &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										 Rossing &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										 Mafube &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										 Lumwana&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										 </div>
+        </div>
+        <div class="time" id="southAfricaTime"></div>
+
+        <div class="location">AUSTRALIA</div>
+        <div class="timezone">UTC +11</div>
+        <div class="viewport">
+            <div class="scrolling-text"> Roseberry &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										 Gemco &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										 Worsley &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										 Maules Creek &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										 Vickery &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										 Tarrawonga &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										 Bloomfield &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										 Goldfields &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										 OBC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											</div>
+        </div>
+        <div class="time" id="australiaTime"></div>
+
+        <div class="location">CANADA</div>
+        <div class="timezone">UTC -4</div>
+        <div class="viewport">
+            <div class="scrolling-text"> Fort Hills &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										 Kosse &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+										 Coal Valley &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										 Wolverine &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										 Gacho Kue &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										 Brule &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										
+										 </div>
+        </div>
+        <div class="time" id="canadaTime"></div>
+    </div>
+
+    <script>
+        // Function to update time every second
+        function updateTime() {
+            // Get current time
+            var now = new Date();
+
+            // Timezones
+            var options = { hour12: false };
+            var tucsonTime = now.toLocaleTimeString('en-US', {timeZone: 'America/Phoenix', ...options});
+            var southAfricaTime = now.toLocaleTimeString('en-US', {timeZone: 'Africa/Johannesburg', ...options});
+            var australiaTime = now.toLocaleTimeString('en-US', {timeZone: 'Australia/Sydney', ...options});
+            var canadaTime = now.toLocaleTimeString('en-US', {timeZone: 'America/Toronto', ...options});;
+
+            // Update HTML with new time
+            document.getElementById('tucsonTime').textContent = tucsonTime;
+            document.getElementById('southAfricaTime').textContent = southAfricaTime;
+            document.getElementById('australiaTime').textContent = australiaTime;
+            document.getElementById('canadaTime').textContent = canadaTime;
+        }
+
+        // Call updateTime function every second
+        setInterval(updateTime, 1000);
+
+        // Initial call to set time when page loads
+        updateTime();
+    </script>
+</body>
+</html>
