@@ -35,7 +35,7 @@
         }
         .content {
             position: relative;
-            z-index: 2; /* Ensure content is on top of overlay */
+            z-index: 1; /* Ensure content is on top of overlay */
         }
         .location {
             font-size: 45px;
@@ -50,7 +50,7 @@
             font-size: 15px;
             margin-bottom: 0px;
             color: #98E4FF;
-	    z-index: 2;
+	    z-index: 4;
         }
         .viewport {
             width: 300px; /* Width of the viewport */
@@ -58,7 +58,7 @@
             overflow: hidden;
             position: relative;
             margin: 0 auto; /* Center the viewport horizontally */
-	    z-index: 2;
+	    z-index: 3;
         }
         .scrolling-text {
             font-size: 30px;
@@ -67,7 +67,7 @@
             white-space: nowrap;
             position: absolute;
             animation: scroll-left 130s linear infinite; /* Adjust duration as needed */
-	    z-index: 2;
+	    z-index: 5;
         }
         .time {
             font-family: 'DS-Digital', sans-serif;
@@ -77,7 +77,7 @@
             color: #00ff00; /* Green color */
             padding-bottom: 60px;
             padding-top: -5px;
-	    z-index: 2;
+	    z-index: 6;
         }
 		
 		.scrolling-text span.plus-one {
