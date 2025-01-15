@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USCA</title>
+    <style>
+        @font-face {
+            font-family: 'DS-Digital';
+            src: url('DS-DIGI.TTF') format('truetype');
+        }
+        body {
+            background-image: url('starmap.gif');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1;
+        }
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+            margin: 20px;
+        }
+        .grid-item {
+            background-color: rgba(0, 0, 0, 0.0);
+            border: 0px solid #444;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .location {
+            font-size: 65px;
+            font-weight: normal;
+            margin-bottom: 10px;
+            font-family: 'DS-Digital', sans-serif;
+            color: #80d8c0;
+        }
+        .time {
+            font-size: 75px;
+            color: #00ff00;
+            font-family: 'DS-Digital', sans-serif;
+        }
+        .section-title {
+            font-size: 55px; /* Adjust this number to increase or decrease text size */
+            font-weight: bold;
+            margin-top: 300px; /* Increased margin for spacing above EMEA */
+            margin-bottom: 20px;
+            color: white;
+            font-family: Arial, sans-serif;
+            grid-column: span 3;
+            text-align: center;
+        }
+        .grid-container + .grid-container {
+            margin-top: 150px; /* Add more space between rows */
+        }
+    </style>
+</head>
+<body style="background-color: black; background-image: none;">
+    <div class="password-container" id="password-container">
+        <h1>Enter Password</h1>
+        <input type="password" id="password" placeholder="Enter password">
+        <button onclick="checkPassword()">Submit</button>
+        <p id="error-message" style="color: red; display: none;">Incorrect password. Try again.</p>
+    </div>
+
+    <div class="content" id="content" style="display: none;">
+        <div class="overlay"></div>
+        <div class="tucson-clock" style="position: absolute; top: -20px; right: 65px; font-family: 'DS-Digital', sans-serif; font-size: 40px; color: white; z-index: 3;">
+    TUCSON: <span id="tucsonTime"></span>
+</div>
+
+<div class="content">
+            <h1 style="margin-top: 50px; font-size: 55px;">USCA</h1>
+            <div id="grid" class="grid-container"></div>
+        </div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const enteredPassword = document.getElementById("password").value;
+            const correctPassword = "2025"; // Change this to your desired password
+
+            if (enteredPassword === correctPassword) {
+                document.body.style.backgroundColor = "";
+                document.body.style.backgroundImage = "url('starmap.gif')";
+                document.body.style.backgroundImage = "url('starmap.gif')";
+                document.getElementById("password-container").style.display = "none";
+                document.getElementById("content").style.display = "block";
+            } else {
+                const errorMessage = document.getElementById("error-message");
+                errorMessage.style.display = "block";
+            }
+        }
+
+        // Include the existing JavaScript
+    </script>
+    <script>
+    function updateTucsonTime() {
+        const tucsonTime = new Date().toLocaleTimeString('en-US', {
+            timeZone: 'America/Phoenix',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false
+        });
+        const [hours, minutes, seconds] = tucsonTime.split(':');
+        const flashingColon = seconds % 2 === 0 ? ':' : ' ';
+        document.getElementById('tucsonTime').textContent = `${hours}${flashingColon}${minutes}`;
+    }
+
+    // Update Tucson time every second
+    setInterval(updateTucsonTime, 1000);
+    updateTucsonTime();
+</script>
+<script src="usca_world_clock.js"></script>
+</body>
+</html>
